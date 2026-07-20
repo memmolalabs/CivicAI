@@ -43,12 +43,11 @@ const elements = {
 
 function compactSource(title, rawUrl) {
   try {
-    const hostname = rawUrl ? new URL(rawUrl).hostname.replace(/^www\./, "") : "";
-    const cleanTitle = (title || "").trim();
-    if (cleanTitle && hostname && !cleanTitle.toLowerCase().includes(hostname.toLowerCase())) {
-      return `${cleanTitle} · ${hostname}`;
-    }
-    return hostname || cleanTitle || message("pageSource");
+    const hostname = rawUrl
+      ? new URL(rawUrl).hostname.replace(/^www\./, "")
+      : "";
+
+    return hostname || (title || "").trim() || message("pageSource");
   } catch {
     return (title || "").trim() || message("pageSource");
   }
