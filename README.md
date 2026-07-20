@@ -77,35 +77,35 @@ Lingue incluse:
 - Deutsch.
 
 
-## How Codex and GPT-5.6 were used
+## Come sono stati utilizzati Codex e GPT-5.6
 
-CivicAI was designed and developed in collaboration with Codex and GPT-5.6 during OpenAI Build Week.
+CivicAI è stata progettata e sviluppata in collaborazione con Codex e GPT-5.6 durante la OpenAI Build Week.
 
-Codex was used to:
+Il Codex è stato utilizzato per:
 
-- design the Manifest V3 extension architecture;
-- implement the context-menu and side-panel workflow;
-- debug browser module resolution and ONNX Runtime issues;
-- integrate the local multilingual model;
-- improve Chrome and Microsoft Edge compatibility;
-- review privacy and security concerns;
-- refine the installation script and project documentation.
+- progettare l'architettura di estensione Manifest V3;
+- implementare il flusso di lavoro contestuale e laterale;
+- risoluzione del modulo del browser di debug e problemi di runtime ONNX;
+- integrare il modello locale multilingue;
+- migliorare la compatibilità con Chrome e Microsoft Edge;
+- esaminare le questioni relative alla privacy e alla sicurezza;
+- affinare lo script di installazione e la documentazione del progetto.
 
-GPT-5.6 was used to:
+GPT-5.6 è stato usato per:
 
-- reason through product and privacy decisions;
-- evaluate alternative local-AI architectures;
-- diagnose integration problems;
-- plan multilingual civic categories and report structure;
-- guide testing, repository preparation, and submission materials.
+- ragione attraverso le decisioni di prodotto e privacy;
+- valutare le architetture alternative locali-AI;
+- diagnosticare i problemi di integrazione;
+- programmare categorie civiche multilingue e struttura della relazione;
+- guida alla verifica, preparazione dei repository e materiale di presentazione.
 
-Key decisions made during development included:
+Le decisioni chiave prese durante lo sviluppo comprendono:
 
-- keeping all inference on-device;
-- avoiding API keys, remote backends, telemetry, and npm installation;
-- using a quantized multilingual ONNX model;
-- separating large generated assets from the public source repository;
-- providing a reproducible, version-pinned setup script.
+- mantenere tutte le inferenze sul dispositivo;
+- evitare chiavi API, backend remoti, telemetria e installazione npm;
+- utilizzando un modello ONNX multilingue quantizzato;
+- separazione delle grandi attività generate dal repertorio pubblico delle fonti;
+- fornendo uno script di configurazione riproducibile e stampato in versione.
 
 ## Principi
 
