@@ -1,26 +1,37 @@
 # Privacy
 
-CivicAI elabora soltanto il testo che l'utente seleziona volontariamente e invia manualmente all'analisi.
+CivicAI è progettato secondo un approccio local-first.
 
-## Modalità demo
+## Dati elaborati
 
-La modalità demo opera localmente nel server Node.js e non invia il testo a provider esterni.
+CivicAI elabora soltanto il testo che l’utente seleziona volontariamente e decide manualmente di analizzare.
 
-## Modalità OpenAI
+Durante l’utilizzo:
 
-Quando `DEMO_MODE=false`, il server locale invia il testo selezionato direttamente all'API OpenAI per generare il risultato. Il server MVP:
+- il testo selezionato viene elaborato localmente nel browser;
+- il testo non viene inviato ad API, server o servizi esterni;
+- non viene utilizzato alcun backend;
+- non vengono creati account o profili;
+- non vengono salvati database o cronologie remote;
+- non viene eseguita alcuna pubblicazione automatica;
+- non è presente telemetria.
 
-- non usa un database;
-- non salva il testo o il risultato;
-- non crea profili;
-- non pubblica contenuti;
-- imposta `store: false` nella richiesta.
+La selezione può essere conservata temporaneamente tramite lo storage locale dell’estensione per trasferirla al pannello laterale. Questa informazione resta nel browser dell’utente.
 
-L'utente deve comunque consultare le condizioni e i controlli sui dati applicabili al provider API.
+## Download iniziale degli asset
 
-## Permessi dell'estensione
+Lo script `tools/download-local-assets.ps1` usa la connessione Internet soltanto per scaricare i file runtime e il modello ONNX necessari all’esecuzione locale.
 
-- `contextMenus`: aggiunge il comando sul testo selezionato;
-- `storage`: trasferisce temporaneamente la selezione al pannello;
-- `sidePanel`: mostra l'interfaccia laterale;
-- accesso a `127.0.0.1:8787`: comunica con il server locale.
+Dopo il download, l’analisi può funzionare senza inviare il testo selezionato a servizi remoti. Il caricamento remoto dei modelli è disattivato nel codice dell’estensione.
+
+## Permessi dell’estensione
+
+- `contextMenus`: aggiunge il comando al menu contestuale del testo selezionato;
+- `storage`: trasferisce temporaneamente la selezione al pannello laterale;
+- `sidePanel`: mostra l’interfaccia di CivicAI.
+
+CivicAI non richiede permessi host generali e non scansiona automaticamente il contenuto delle pagine.
+
+## Responsabilità dell’utente
+
+Prima di utilizzare o inviare una bozza, l’utente deve controllarne il contenuto e rimuovere eventuali dati personali o sensibili non necessari.

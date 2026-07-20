@@ -1,97 +1,104 @@
 # CivicAI
 
-CivicAI è un'estensione open source per Chrome ed Edge che trasforma un testo selezionato sul web in una bozza di segnalazione civica strutturata, modificabile e controllata dall'utente.
+CivicAI è un’estensione open source per Chrome ed Edge che trasforma un testo selezionato sul web in una bozza di segnalazione civica strutturata, modificabile e controllata dall’utente.
 
 ## Stato
 
-Versione iniziale `0.1.0`: MVP locale.
+Versione `0.3.0` — Local AI.
 
 - menu contestuale sul testo selezionato;
 - pannello laterale;
-- classificazione e bozza modificabile;
-- modalità demo senza API;
-- modalità OpenAI opzionale attraverso un server locale;
-- nessuna pubblicazione o trasmissione automatica verso enti o social network.
+- interfaccia localizzata automaticamente;
+- classificazione civica multilingue eseguita localmente;
+- bozza deterministica, modificabile e sempre sottoposta al controllo dell’utente;
+- nessuna API, chiave, telemetria, backend o database;
+- nessuna pubblicazione o trasmissione automatica verso enti, social network o servizi esterni.
 
-## Avvio rapido
+## Requisiti
 
-### 1. Avviare il server
+- Chrome o Microsoft Edge con supporto a Manifest V3 e Side Panel;
+- Windows PowerShell per lo script di preparazione degli asset locali;
+- connessione a Internet necessaria soltanto durante il download iniziale degli asset.
 
-Richiede Node.js 20 o successivo, ma non richiede `npm install`.
+Non è richiesto `npm install`.
 
-```powershell
-cd server
-Copy-Item .env.example .env
-node server.js
-```
+## Installazione
 
-La modalità iniziale `DEMO_MODE=true` non usa una chiave API e non effettua richieste esterne.
-
-### 2. Caricare l'estensione
-
-1. Aprire `chrome://extensions` oppure `edge://extensions`.
-2. Attivare **Modalità sviluppatore**.
-3. Scegliere **Carica estensione non pacchettizzata**.
-4. Selezionare la cartella `extension`.
-5. Selezionare un testo in una pagina.
-6. Clic destro → **Analizza con CivicAI**.
-
-### Modalità OpenAI
-
-Nel file `server/.env`:
-
-```env
-OPENAI_API_KEY=...
-OPENAI_MODEL=gpt-4.1-mini
-DEMO_MODE=false
-```
-
-La chiave resta nel server locale e non viene inserita nell'estensione.
-
-## Principi
-
-- controllo umano prima di ogni utilizzo;
-- minimizzazione dei dati;
-- nessun database nel MVP;
-- nessuna raccolta di account, nomi, immagini o cronologia;
-- nessuna scansione automatica delle pagine;
-- codice aperto e verificabile.
-
-## Limiti
-
-CivicAI genera una bozza e non verifica la veridicità dei contenuti. Non sostituisce i canali di emergenza, le autorità competenti o una consulenza legale.
-
-## Licenza
-
-MIT.
-
-## Localizzazione automatica
-
-La versione 0.2.0 rileva la lingua dell'interfaccia del browser tramite `chrome.i18n`.
-
-Lingue incluse:
-
-- English, fallback predefinito
-- Italiano
-- Español
-- Français
-- Deutsch
-
-L'interfaccia, il menu contestuale, gli esempi e i risultati della modalità demo seguono automaticamente la lingua del browser. In modalità OpenAI, la lingua e il locale vengono inviati al server insieme al testo selezionato.
-
-
-## Versione 0.3.0 – Local AI
-
-Questa versione elimina il server locale e non usa API, chiavi o npm.
-
-Prima di caricare l'estensione, eseguire una sola volta:
+1. Scaricare o clonare il repository.
+2. Dalla cartella principale eseguire:
 
 ```powershell
 Set-ExecutionPolicy -Scope Process Bypass
 .\tools\download-local-assets.ps1
 ```
 
-Lo script scarica file con versioni fissate e crea `SHA256SUMS.local.txt`.
-Durante l'utilizzo, il caricamento remoto dei modelli è disattivato.
+3. Aprire `chrome://extensions` oppure `edge://extensions`.
+4. Attivare **Modalità sviluppatore**.
+5. Selezionare **Carica estensione non pacchettizzata**.
+6. Scegliere la cartella `extension`.
 
-Il modello locale confronta il testo selezionato con esempi multilingue di categorie civiche. La bozza finale resta deterministica e modificabile.
+Lo script scarica gli asset runtime e il modello ONNX richiesti dall’estensione, quindi crea `SHA256SUMS.local.txt` con gli hash dei file locali.
+
+I file binari scaricati non vengono inclusi nel repository Git.
+
+## Utilizzo
+
+1. Selezionare un testo in una pagina web.
+2. Fare clic con il tasto destro.
+3. Scegliere **Analizza con CivicAI**.
+4. Controllare il testo nel pannello laterale.
+5. Premere **Analizza**.
+6. Verificare e modificare la bozza prima di usarla.
+
+La prima analisi può richiedere più tempo perché il modello viene inizializzato nel browser. Le analisi successive sono normalmente più rapide.
+
+## Elaborazione locale
+
+Durante l’utilizzo:
+
+- il testo selezionato resta nel browser;
+- il modello viene caricato dai file locali dell’estensione;
+- il caricamento remoto dei modelli è disattivato;
+- non vengono effettuate richieste a servizi di intelligenza artificiale esterni;
+- non vengono creati account, profili o cronologie remote.
+
+CivicAI usa similarità semantica multilingue per confrontare il testo con esempi appartenenti a categorie civiche. Il risultato è indicativo e deve essere verificato dall’utente.
+
+## Lingue dell’interfaccia
+
+CivicAI rileva la lingua del browser tramite `chrome.i18n`.
+
+Lingue incluse:
+
+- English, lingua di fallback;
+- Italiano;
+- Español;
+- Français;
+- Deutsch.
+
+## Principi
+
+- controllo umano prima di ogni utilizzo;
+- minimizzazione dei dati;
+- elaborazione locale;
+- nessuna scansione automatica delle pagine;
+- nessuna raccolta di account, nomi, immagini o cronologia di navigazione;
+- codice aperto e verificabile;
+- permessi dell’estensione ridotti al minimo necessario.
+
+## Limiti
+
+CivicAI genera una bozza e non verifica la veridicità dei contenuti. La classificazione può essere imprecisa o incompleta.
+
+CivicAI non sostituisce:
+
+- i servizi di emergenza;
+- le autorità competenti;
+- i canali ufficiali di segnalazione;
+- una consulenza legale o professionale.
+
+Non inserire dati personali o sensibili non necessari nella segnalazione finale.
+
+## Licenza
+
+Il codice originale di CivicAI è distribuito con licenza MIT. Modello e componenti di terze parti conservano le rispettive licenze, indicate in `THIRD_PARTY_NOTICES.md` e `MODEL_CARD.md`.
