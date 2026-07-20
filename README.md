@@ -76,6 +76,37 @@ Lingue incluse:
 - Français;
 - Deutsch.
 
+
+## How Codex and GPT-5.6 were used
+
+CivicAI was designed and developed in collaboration with Codex and GPT-5.6 during OpenAI Build Week.
+
+Codex was used to:
+
+- design the Manifest V3 extension architecture;
+- implement the context-menu and side-panel workflow;
+- debug browser module resolution and ONNX Runtime issues;
+- integrate the local multilingual model;
+- improve Chrome and Microsoft Edge compatibility;
+- review privacy and security concerns;
+- refine the installation script and project documentation.
+
+GPT-5.6 was used to:
+
+- reason through product and privacy decisions;
+- evaluate alternative local-AI architectures;
+- diagnose integration problems;
+- plan multilingual civic categories and report structure;
+- guide testing, repository preparation, and submission materials.
+
+Key decisions made during development included:
+
+- keeping all inference on-device;
+- avoiding API keys, remote backends, telemetry, and npm installation;
+- using a quantized multilingual ONNX model;
+- separating large generated assets from the public source repository;
+- providing a reproducible, version-pinned setup script.
+
 ## Principi
 
 - controllo umano prima di ogni utilizzo;
