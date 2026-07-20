@@ -1,5 +1,12 @@
 $ErrorActionPreference = "Stop"
 
+$ProjectRoot = Split-Path -Parent $PSScriptRoot
+$ExtensionDir = Join-Path $ProjectRoot "extension"
+$LibDir = Join-Path $ExtensionDir "lib"
+
+New-Item -ItemType Directory -Force -Path $ExtensionDir | Out-Null
+New-Item -ItemType Directory -Force -Path $LibDir | Out-Null
+
 $Root = Split-Path -Parent $PSScriptRoot
 $Ext = Join-Path $Root "extension"
 $Model = Join-Path $Ext "models\paraphrase-multilingual-MiniLM-L12-v2"
@@ -13,10 +20,6 @@ $RuntimeBase = "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist"
 $ExistingInt8 = Join-Path $Onnx "model_int8.onnx"
 $QuantizedModel = Join-Path $Onnx "model_quantized.onnx"
 
-if ((Test-Path $ExistingInt8) -and -not (Test-Path $QuantizedModel)) {
-  Write-Host "Creating v2-compatible model filename..."
-  Copy-Item $ExistingInt8 $QuantizedModel
-}
 
 $Downloads = @(
   @("$RuntimeBase/transformers.min.js", (Join-Path $Lib "transformers.min.js")),
@@ -56,6 +59,24 @@ foreach ($File in $ObsoleteFiles) {
   if (Test-Path $File) {
     Remove-Item $File -Force
   }
+}
+
+$ModelDir = Join-Path $ExtensionDir "models\paraphrase-multilingual-MiniLM-L12-v2\onnx"
+$QuantizedModel = Join-Path $ModelDir "model_quantized.onnx"
+
+$ModelUrl = "https://huggingface.co/Xenova/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/onnx/model_quantized.onnx?download=true"
+
+New-Item -ItemType Directory -Force -Path $ModelDir | Out-Null
+
+if (-not (Test-Path $QuantizedModel)) {
+    Write-Host "Downloading model_quantized.onnx..."
+    Invoke-WebRequest `
+        -Uri $ModelUrl `
+        -OutFile $QuantizedModel `
+        -UseBasicParsing
+}
+else {
+    Write-Host "Model already present: model_quantized.onnx"
 }
 
 $HashFile = Join-Path $Root "SHA256SUMS.local.txt"
