@@ -77,35 +77,28 @@ Lingue incluse:
 - Deutsch.
 
 
-## Come sono stati utilizzati Codex e GPT-5.6
+## Come è stato usato GPT-5.6 Sol
 
-CivicAI è stata progettata e sviluppata in collaborazione con Codex e GPT-5.6 durante la OpenAI Build Week.
+CivicAI è stato progettato e sviluppato in collaborazione con GPT-5.6 Sol durante OpenAI Build Week.
 
-Il Codex è stato utilizzato per:
+GPT-5,6 Sol è stato usato per:
 
 - progettare l'architettura di estensione Manifest V3;
-- implementare il flusso di lavoro contestuale e laterale;
-- risoluzione del modulo del browser di debug e problemi di runtime ONNX;
+- implementa e debug il flusso di lavoro del menu contestuale e del pannello laterale;
+- risolvere i problemi di risoluzione del modulo del browser e ONNX Runtime;
 - integrare il modello locale multilingue;
-- migliorare la compatibilità con Chrome e Microsoft Edge;
+- convalidare la compatibilità Chrome e Microsoft Edge;
 - esaminare le questioni relative alla privacy e alla sicurezza;
-- affinare lo script di installazione e la documentazione del progetto.
+- creare lo script di installazione riproducibile;
+- preparare la documentazione e il materiale di presentazione.
 
-GPT-5.6 è stato usato per:
-
-- ragione attraverso le decisioni di prodotto e privacy;
-- valutare le architetture alternative locali-AI;
-- diagnosticare i problemi di integrazione;
-- programmare categorie civiche multilingue e struttura della relazione;
-- guida alla verifica, preparazione dei repository e materiale di presentazione.
-
-Le decisioni chiave prese durante lo sviluppo comprendono:
+Le principali decisioni architettoniche sviluppate con GPT-5.6 Sol includono:
 
 - mantenere tutte le inferenze sul dispositivo;
 - evitare chiavi API, backend remoti, telemetria e installazione npm;
 - utilizzando un modello ONNX multilingue quantizzato;
 - separazione delle grandi attività generate dal repertorio pubblico delle fonti;
-- fornendo uno script di configurazione riproducibile e stampato in versione.
+- fornendo un processo di configurazione in versione.
 
 ## Principi
 
