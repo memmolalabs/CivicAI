@@ -1,36 +1,37 @@
 # Privacy
 
-CivicAI v0.3.1 è progettato con un approccio local-first e senza backend.
+CivicAI v0.3.1 is designed with a local-first approach and no backend.
 
-## Dati elaborati
+## Processed Data
 
-CivicAI riceve il testo che l’utente seleziona volontariamente tramite il menu contestuale. Il background salva temporaneamente soltanto:
+CivicAI receives the text the user voluntarily selects via the context menu. The background temporarily saves only:
 
-- il testo selezionato;
-- il nome di dominio della pagina, senza percorso, query string, frammento o titolo.
+- the selected text;
+- the domain name of the page, without path, query string, fragment, or title.
 
-Ogni selezione usa una chiave temporanea univoca in `chrome.storage.local`. La chiave include un timestamp tecnico per ordinare correttamente selezioni concorrenti; non contiene URL o titolo. Prima di salvare una nuova selezione il background elimina eventuali selezioni pendenti più vecchie. Il pannello rimuove la chiave dopo averne consumato il contenuto e Reset rimuove eventuali residui. Se il pannello non riesce ad aprirsi o si interrompe prima del consumo, l’ultima selezione può restare nello storage locale fino alla selezione successiva, al consumo, al Reset o alla rimozione dei dati dell’estensione.
+Each selection uses a unique temporary key in `chrome.storage.local`. The key includes a technical timestamp to correctly sort competing selections; it does not contain URLs or titles. Before saving a new selection, the background deletes any older pending selections. The panel removes the key after consuming its contents, and Reset removes any residuals. If the panel fails to open or is stopped before consumption, the last selection may remain in local storage until the next selection, consumption, Reset, or the extension's data is cleared.
 
-Il testo visibile e le bozze modificate nel pannello non vengono aggiunti a una cronologia applicativa.
+Visible text and edited drafts in the panel are not added to an application history.
 
-## Trasmissioni e rete
+## Transmissions and Network
 
-Durante l’analisi:
+During analysis:
 
-- testo, embedding e risultati restano nel browser;
-- non vengono inviati dati ad API, server AI o servizi esterni;
-- non sono presenti backend, account, telemetria, analytics o pubblicazione automatica;
-- il manifest non richiede host permissions;
-- il caricamento remoto dei modelli è disattivato.
+- text, embeddings, and results remain in the browser;
+- no data is sent to APIs, AI servers, or external services;
+- there are no backends, accounts, telemetry, analytics, or automatic publishing;
+- the manifest does not require host permissions;
+- remote model uploading is disabled.
 
-Lo script `tools/download-local-assets.ps1` usa Internet soltanto durante la preparazione esplicita degli asset e non riceve testo selezionato o dati d’uso.
+The `tools/download-local-assets.ps1` script uses the Internet only during explicit asset preparation and does not receive selected text or usage data.
 
-## Permessi
+## Permissions
 
-- `contextMenus`: riceve la selezione soltanto dopo l’azione esplicita dell’utente;
-- `storage`: trasferisce temporaneamente selezione e dominio al pannello;
-- `sidePanel`: mostra l’interfaccia.
+- `contextMenus`: receives the selection only after explicit user action;
+- `storage`: temporarily transfers selection and domain to the panel;
+- `sidePanel`: displays the interface.
 
-## Responsabilità dell’utente
+## User Responsibilities
 
-Prima di usare o inviare una bozza, l’utente deve verificarla e rimuovere dati personali o sensibili non necessari.
+Before using or submitting a draft, the user must review it and remove any unnecessary personal or sensitive data.
+
