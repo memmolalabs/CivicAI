@@ -1,27 +1,27 @@
 # CivicAI v0.3.1 — Local AI consolidation
 
-## Flusso verificabile
+## Verifiable flow
 
-1. Selezione volontaria di un testo.
-2. Menu contestuale **Analizza con CivicAI**.
-3. Trasferimento temporaneo di testo e solo dominio tramite storage locale.
-4. Consumo e rimozione della selezione pendente nel pannello laterale.
-5. Analisi locale con Transformers.js, ONNX Runtime Web e WASM SIMD single-threaded.
-6. Classificazione indicativa e bozza deterministica modificabile.
-7. Copia manuale dopo revisione dell’utente.
+1. Voluntary text selection.
+2. Context menu **Analyze with CivicAI**.
+3. Temporary transfer of text and domain only via local storage.
+4. Consumption and removal of pending selection in the side panel.
+5. Local analysis with Transformers.js, ONNX Web Runtime, and single-threaded WASM SIMD.
+6. Indicative classification and editable deterministic draft.
+7. Manual copy after user review.
 
-## Garanzie architetturali
+## Architectural guarantees
 
-- nessun backend, account, token, telemetria o cloud inference;
-- nessun host permission o scansione automatica delle pagine;
-- nessun `SharedArrayBuffer`, cross-origin isolation o worker Blob;
-- asset fissati e verificati prima dell’installazione;
-- risultati asincroni scartati quando cambia il testo sorgente.
+- no backend, accounts, tokens, telemetry, or cloud inference;
+- no host permission or automatic page crawling;
+- no `SharedArrayBuffer`, cross-origin isolation, or worker Blobs;
+- assets fixed and verified before installation;
+- asynchronous results discarded when the source text changes.
 
-## Fuori ambito
+## Out of scope
 
-- scraping, feed monitoring o geolocalizzazione invisibile;
-- invio automatico a enti, PEC o social network;
-- verifica fattuale, legale o dell’urgenza;
-- acquisizione automatica di immagini;
-- profilazione o cronologia remota.
+- scraping, feed monitoring, or invisible geolocation;
+- automatic sending to agencies, certified emails, or social networks;
+- factual, legal, or urgency verification;
+- automatic image acquisition;
+- profiling or remote history.
