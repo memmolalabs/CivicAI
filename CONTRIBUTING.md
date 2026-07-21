@@ -1,11 +1,11 @@
-# Contribuire
+# Contribute
 
-Issue e pull request sono benvenute.
+Issues and pull requests are welcome.
 
-Prima di proporre una modifica:
+Before proposing a change:
 
-1. non aggiungere telemetria o raccolta dati senza una discussione pubblica;
-2. non inserire chiavi, token o credenziali;
-3. mantenere l'utente nel controllo di ogni invio;
-4. documentare nuovi permessi dell'estensione;
-5. includere istruzioni di test riproducibili.
+1. Do not add telemetry or data collection without public discussion;
+2. Do not include keys, tokens, or credentials;
+3. Keep the user in control of every submission;
+4. Document new extension permissions;
+5. Include reproducible test instructions.
