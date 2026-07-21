@@ -1,0 +1,15 @@
+# Local AI binaries and generated assets
+extension/models/**/onnx/*.onnx
+extension/lib/transformers*.js
+extension/lib/ort-*.wasm
+extension/lib/ort-*.mjs
+SHA256SUMS.local.txt
+
+# Local environment
+.env
+node_modules/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
