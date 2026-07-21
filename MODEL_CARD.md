@@ -1,28 +1,28 @@
 # CivicAI local model
 
-## Identificazione
+## Identification
 
-- modello originale: `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`;
-- conversione browser: `Xenova/paraphrase-multilingual-MiniLM-L12-v2`;
-- revisione fissata: `7e3d5398ff67a776281d0a27b2d47a964d5bfffb`;
-- variante: `onnx/model_quantized.onnx`;
+- Original model: `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`;
+- Browser conversion: `Xenova/paraphrase-multilingual-MiniLM-L12-v2`;
+- Fixed revision: `7e3d5398ff67a776281d0a27b2d47a964d5bfffb`;
+- Variant: `onnx/model_quantized.onnx`;
 - SHA-256: `66fc00f5f29afcaff34092e1bdd20008ca3918265a82fb9695a551e510cc4ebc`;
-- licenza: Apache-2.0.
+- License: Apache-2.0.
 
-## Uso
+## Usage
 
-Il modello produce embedding semantici multilingue. CivicAI confronta l’embedding del testo con esempi di categorie civiche predefinite mediante similarità coseno. La bozza testuale è composta deterministicamente e resta modificabile.
+The model produces multilingual semantic embeddings. CivicAI compares the text embedding with examples of predefined civic categories using cosine similarity. The text draft is composed deterministically and remains editable.
 
-Il valore mostrato come percentuale è la similarità semantica massima normalizzata nell’intervallo visualizzato. **Non è una probabilità calibrata**, non misura la veridicità e non rappresenta una decisione ufficiale.
+The value displayed as a percentage is the maximum normalized semantic similarity in the displayed range. **It is not a calibrated probability**, does not measure veracity, and does not represent an official decision.
 
-Il tokenizer ha un limite massimo di 512 token. Testi più lunghi possono essere troncati per l’embedding; il testo originale resta comunque nella bozza.
+The tokenizer has a maximum limit of 512 tokens. Longer texts may be truncated for embedding; the original text remains in the draft.
 
-## Limiti
+## Limitations
 
-Il modello può interpretare male testi ambigui, negati, molto brevi, multitema o fuori dalle categorie disponibili; può inoltre produrre risultati differenti fra lingue e riflettere limiti o bias dei dati originali.
+The model may misinterpret ambiguous, negated, very short, multi-topic, or non-categorized texts; it may also produce different results between languages ​​and reflect limitations or biases in the original data.
 
-Non verifica fatti, responsabilità legali, urgenze reali o autorità competenti e non sostituisce la valutazione umana.
+It does not verify facts, legal responsibilities, real emergencies, or competent authorities, and does not replace human judgment.
 
-## Privacy e runtime
+## Privacy and Runtime
 
-Inferenza e pooling avvengono nel pannello dell’estensione tramite Transformers.js 2.17.2 e ONNX Runtime Web 1.14.0, usando il file WASM SIMD non threaded locale. Il caricamento remoto dei modelli è disattivato.
+Inference and pooling are performed in the extension panel using Transformers.js 2.17.2 and ONNX Web Runtime 1.14.0, using the local, non-threaded WASM SIMD file. Remote model loading is disabled.
