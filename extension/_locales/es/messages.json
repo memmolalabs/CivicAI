@@ -1,0 +1,119 @@
+{
+  "appName": {
+    "message": "CivicAI"
+  },
+  "appDescription": {
+    "message": "Convierte el texto seleccionado en la web en un aviso cívico editable."
+  },
+  "actionTitle": {
+    "message": "Abrir CivicAI"
+  },
+  "menuAnalyze": {
+    "message": "Analizar con CivicAI"
+  },
+  "tagline": {
+    "message": "Del ruido de la web a un aviso cívico útil."
+  },
+  "selectedText": {
+    "message": "TEXTO SELECCIONADO"
+  },
+  "sourcePlaceholder": {
+    "message": "Selecciona un texto en una página, haz clic derecho y elige “Analizar con CivicAI”."
+  },
+  "analyze": {
+    "message": "Analizar"
+  },
+  "loadExample": {
+    "message": "Cargar ejemplo"
+  },
+  "editableResult": {
+    "message": "RESULTADO EDITABLE"
+  },
+  "civicReport": {
+    "message": "Aviso cívico"
+  },
+  "category": {
+    "message": "Categoría"
+  },
+  "subject": {
+    "message": "Asunto"
+  },
+  "location": {
+    "message": "Lugar"
+  },
+  "urgency": {
+    "message": "Urgencia"
+  },
+  "urgencyLow": {
+    "message": "Baja"
+  },
+  "urgencyMedium": {
+    "message": "Media"
+  },
+  "urgencyHigh": {
+    "message": "Alta"
+  },
+  "urgencyCritical": {
+    "message": "Crítica"
+  },
+  "recipient": {
+    "message": "Posible destinatario"
+  },
+  "urgencyReason": {
+    "message": "Motivo de la urgencia"
+  },
+  "missingInfo": {
+    "message": "Información que falta"
+  },
+  "reportText": {
+    "message": "Texto del aviso"
+  },
+  "copyReport": {
+    "message": "Copiar aviso"
+  },
+  "reset": {
+    "message": "Restablecer"
+  },
+  "privacyNote": {
+    "message": "CivicAI no publica ni envía nada automáticamente. Revisa siempre el texto antes de usarlo."
+  },
+  "pageSource": {
+    "message": "Página web"
+  },
+  "localExample": {
+    "message": "Ejemplo de demostración local"
+  },
+  "textTooShort": {
+    "message": "Selecciona o introduce un texto más completo."
+  },
+  "textTooLong": {
+    "message": "Mantén el texto dentro de $1 caracteres.",
+    "placeholders": { "limit": { "content": "$1" } }
+  },
+  "analyzing": {
+    "message": "Analizando…"
+  },
+  "notCivic": {
+    "message": "El texto no parece describir un problema cívico."
+  },
+  "analysisComplete": {
+    "message": "Análisis completado. Revisa y edita los campos antes de usarlos."
+  },
+  "localEngineError": {
+    "message": "El motor de IA local no pudo completar el análisis: $1",
+    "placeholders": {
+      "detail": {
+        "content": "$1"
+      }
+    }
+  },
+  "copied": {
+    "message": "Aviso copiado al portapapeles."
+  },
+  "subjectPrefix": {
+    "message": "Asunto"
+  },
+  "demoText": {
+    "message": "Desde hace tres semanas, la farola frente a la escuela de la calle Manzoni no funciona. Por la noche la acera está completamente oscura y varias personas casi se han caído."
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "appName": {
+    "message": "CivicAI"
+  },
+  "appDescription": {
+    "message": "Trasforma il testo selezionato sul web in una segnalazione civica modificabile."
+  },
+  "actionTitle": {
+    "message": "Apri CivicAI"
+  },
+  "menuAnalyze": {
+    "message": "Analizza con CivicAI"
+  },
+  "tagline": {
+    "message": "Dal rumore del web a una segnalazione utile."
+  },
+  "selectedText": {
+    "message": "TESTO SELEZIONATO"
+  },
+  "sourcePlaceholder": {
+    "message": "Seleziona un testo in una pagina, fai clic destro e scegli “Analizza con CivicAI”."
+  },
+  "analyze": {
+    "message": "Analizza"
+  },
+  "loadExample": {
+    "message": "Carica esempio"
+  },
+  "editableResult": {
+    "message": "RISULTATO MODIFICABILE"
+  },
+  "civicReport": {
+    "message": "Segnalazione civica"
+  },
+  "category": {
+    "message": "Categoria"
+  },
+  "subject": {
+    "message": "Oggetto"
+  },
+  "location": {
+    "message": "Luogo"
+  },
+  "urgency": {
+    "message": "Urgenza"
+  },
+  "urgencyLow": {
+    "message": "Bassa"
+  },
+  "urgencyMedium": {
+    "message": "Media"
+  },
+  "urgencyHigh": {
+    "message": "Alta"
+  },
+  "urgencyCritical": {
+    "message": "Critica"
+  },
+  "recipient": {
+    "message": "Possibile destinatario"
+  },
+  "urgencyReason": {
+    "message": "Motivazione dell’urgenza"
+  },
+  "missingInfo": {
+    "message": "Dati mancanti"
+  },
+  "reportText": {
+    "message": "Testo della segnalazione"
+  },
+  "copyReport": {
+    "message": "Copia segnalazione"
+  },
+  "reset": {
+    "message": "Azzera"
+  },
+  "privacyNote": {
+    "message": "CivicAI non pubblica né invia nulla automaticamente. Controlla sempre il testo prima di usarlo."
+  },
+  "pageSource": {
+    "message": "Pagina web"
+  },
+  "localExample": {
+    "message": "Esempio dimostrativo locale"
+  },
+  "textTooShort": {
+    "message": "Seleziona o inserisci un testo più completo."
+  },
+  "textTooLong": {
+    "message": "Mantieni il testo entro $1 caratteri.",
+    "placeholders": { "limit": { "content": "$1" } }
+  },
+  "analyzing": {
+    "message": "Analisi in corso…"
+  },
+  "notCivic": {
+    "message": "Il testo non sembra descrivere una segnalazione civica."
+  },
+  "analysisComplete": {
+    "message": "Analisi completata. Verifica e modifica i campi prima dell’uso."
+  },
+  "localEngineError": {
+    "message": "Il motore AI locale non ha completato l’analisi: $1",
+    "placeholders": {
+      "detail": {
+        "content": "$1"
+      }
+    }
+  },
+  "copied": {
+    "message": "Segnalazione copiata negli appunti."
+  },
+  "subjectPrefix": {
+    "message": "Oggetto"
+  },
+  "demoText": {
+    "message": "Da tre settimane il lampione davanti alla scuola in via Manzoni è spento. La sera il marciapiede è completamente buio e alcune persone hanno già rischiato di cadere."
+  }
+}
