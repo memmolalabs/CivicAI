@@ -1,37 +1,36 @@
 # Privacy
 
-CivicAI è progettato secondo un approccio local-first.
+CivicAI v0.3.1 è progettato con un approccio local-first e senza backend.
 
 ## Dati elaborati
 
-CivicAI elabora soltanto il testo che l’utente seleziona volontariamente e decide manualmente di analizzare.
+CivicAI riceve il testo che l’utente seleziona volontariamente tramite il menu contestuale. Il background salva temporaneamente soltanto:
 
-Durante l’utilizzo:
+- il testo selezionato;
+- il nome di dominio della pagina, senza percorso, query string, frammento o titolo.
 
-- il testo selezionato viene elaborato localmente nel browser;
-- il testo non viene inviato ad API, server o servizi esterni;
-- non viene utilizzato alcun backend;
-- non vengono creati account o profili;
-- non vengono salvati database o cronologie remote;
-- non viene eseguita alcuna pubblicazione automatica;
-- non è presente telemetria.
+Ogni selezione usa una chiave temporanea univoca in `chrome.storage.local`. La chiave include un timestamp tecnico per ordinare correttamente selezioni concorrenti; non contiene URL o titolo. Prima di salvare una nuova selezione il background elimina eventuali selezioni pendenti più vecchie. Il pannello rimuove la chiave dopo averne consumato il contenuto e Reset rimuove eventuali residui. Se il pannello non riesce ad aprirsi o si interrompe prima del consumo, l’ultima selezione può restare nello storage locale fino alla selezione successiva, al consumo, al Reset o alla rimozione dei dati dell’estensione.
 
-La selezione può essere conservata temporaneamente tramite lo storage locale dell’estensione per trasferirla al pannello laterale. Questa informazione resta nel browser dell’utente.
+Il testo visibile e le bozze modificate nel pannello non vengono aggiunti a una cronologia applicativa.
 
-## Download iniziale degli asset
+## Trasmissioni e rete
 
-Lo script `tools/download-local-assets.ps1` usa la connessione Internet soltanto per scaricare i file runtime e il modello ONNX necessari all’esecuzione locale.
+Durante l’analisi:
 
-Dopo il download, l’analisi può funzionare senza inviare il testo selezionato a servizi remoti. Il caricamento remoto dei modelli è disattivato nel codice dell’estensione.
+- testo, embedding e risultati restano nel browser;
+- non vengono inviati dati ad API, server AI o servizi esterni;
+- non sono presenti backend, account, telemetria, analytics o pubblicazione automatica;
+- il manifest non richiede host permissions;
+- il caricamento remoto dei modelli è disattivato.
 
-## Permessi dell’estensione
+Lo script `tools/download-local-assets.ps1` usa Internet soltanto durante la preparazione esplicita degli asset e non riceve testo selezionato o dati d’uso.
 
-- `contextMenus`: aggiunge il comando al menu contestuale del testo selezionato;
-- `storage`: trasferisce temporaneamente la selezione al pannello laterale;
-- `sidePanel`: mostra l’interfaccia di CivicAI.
+## Permessi
 
-CivicAI non richiede permessi host generali e non scansiona automaticamente il contenuto delle pagine.
+- `contextMenus`: riceve la selezione soltanto dopo l’azione esplicita dell’utente;
+- `storage`: trasferisce temporaneamente selezione e dominio al pannello;
+- `sidePanel`: mostra l’interfaccia.
 
 ## Responsabilità dell’utente
 
-Prima di utilizzare o inviare una bozza, l’utente deve controllarne il contenuto e rimuovere eventuali dati personali o sensibili non necessari.
+Prima di usare o inviare una bozza, l’utente deve verificarla e rimuovere dati personali o sensibili non necessari.

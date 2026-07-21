@@ -2,35 +2,29 @@
 
 ## Segnalare una vulnerabilità
 
-Non pubblicare in una issue aperta dettagli che contengano dati personali, credenziali, exploit immediatamente utilizzabili o informazioni che possano mettere a rischio gli utenti.
+Non pubblicare in issue aperte credenziali, dati personali o dettagli di exploit immediatamente utilizzabili. Usare inizialmente un canale privato indicato dal maintainer e coordinare la divulgazione.
 
-Usare un canale privato indicato dal maintainer del repository per la prima segnalazione. La vulnerabilità potrà essere resa pubblica dopo la correzione e il coordinamento della divulgazione.
+## Proprietà di sicurezza v0.3.1
 
-## Principi di sicurezza
+- nessuna chiave, token o credenziale nel codice;
+- nessuna telemetria o chiamata AI remota;
+- nessun host permission o content script;
+- testo non attendibile reso tramite `textContent` o `value`, mai come HTML;
+- nessun `innerHTML`, `eval`, `new Function` o codice remoto nel codice applicativo CivicAI;
+- CSP MV3 limitata a script locali e `wasm-unsafe-eval` necessario a WebAssembly;
+- ONNX Runtime configurato con `numThreads = 1`, SIMD abilitato e proxy disabilitato;
+- nessuna dipendenza da `SharedArrayBuffer`, cross-origin isolation o worker Blob;
+- asset scaricati in file temporanei e accettati solo dopo controllo di dimensione e SHA-256;
+- selezioni rimosse dallo storage locale dopo il consumo del pannello.
 
-CivicAI deve mantenere:
+Il bundle di terze parti Transformers.js incorpora codice di compatibilità generico, incluso codice non usato nel percorso CivicAI. La CSP MV3 rimane l’autorità di esecuzione; qualsiasi aggiornamento del bundle deve essere riesaminato e mantenere gli hash fissati.
 
-- assenza di chiavi, token e credenziali nel codice;
-- assenza di telemetria non dichiarata;
-- elaborazione locale del testo selezionato;
-- nessun caricamento remoto del modello durante l’utilizzo;
-- permessi Manifest V3 ridotti al minimo;
-- rendering del testo non attendibile tramite `textContent`, `value` o metodi equivalenti, mai tramite HTML eseguibile;
-- versioni delle dipendenze fissate e documentate;
-- nessun `eval` o esecuzione dinamica di codice remoto;
-- revisione di ogni modifica che introduca nuove origini di rete o nuovi permessi.
+## Dati e asset da non committare
 
-## Segreti e dati locali
-
-Non includere nel repository:
-
-- file `.env`;
-- chiavi private, certificati o keystore;
-- password, token o chiavi API;
-- percorsi personali del computer;
-- dump, log o file di debug contenenti dati dell’utente;
-- asset locali generati o scaricati esclusi da `.gitignore`.
+- `.env`, chiavi, certificati, password e token;
+- dump, log o percorsi personali;
+- modelli ONNX, bundle runtime, file WASM e `SHA256SUMS.local.txt` generati dallo script.
 
 ## Limiti
 
-L’elaborazione locale riduce l’esposizione dei dati ma non elimina tutti i rischi. Gli utenti devono installare l’estensione e gli asset soltanto da fonti affidabili e controllare le modifiche al codice prima dell’esecuzione.
+L’elaborazione locale riduce l’esposizione dei dati ma non protegge da un dispositivo compromesso, da estensioni/browser non affidabili o da asset installati al di fuori dello script verificato.
